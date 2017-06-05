@@ -1,5 +1,5 @@
 /**
- * Created by heartless007 on 5/30/2017.
+ * Created on 5/30/2017.
  */
 const gulp = require('gulp'),
       sass = require('gulp-sass'),
