@@ -16,7 +16,7 @@ body {
 
 .container {
   width: 580px;
-  margin: 140px auto 0;
+  margin: 130px auto 0;
   text-align: center;
 }
 
@@ -59,10 +59,11 @@ input[type="text"] {
  */
 
 input[type="submit"] {
-  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f1f1f1)); */
+  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f1f1f1));
   background: #f8f8f8 -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
   background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
-  background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1); */
+  background-image: linear-gradient(left top, #f8f8f8, #f1f1f1);
   border: 1px solid #f2f2f2;
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);

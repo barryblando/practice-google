@@ -3,7 +3,9 @@
  */
 const gulp = require('gulp'),
       sass = require('gulp-sass'),
-      browserSync = require('browser-sync').create();
+      browserSync = require('browser-sync').create(),
+      autoPrefixer = require('gulp-autoprefixer'),
+      csscomb = require('gulp-csscomb');
 
 function handleError(error) {
   console.log(error.toString());
@@ -13,8 +15,12 @@ function handleError(error) {
 gulp.task('styles', function () {
   gulp.src('./src/scss/application.scss')
       .pipe(sass())
+      .pipe(autoPrefixer({
+        browsers: ['last 2 versions']
+      }))
+      .pipe(csscomb('./src/json/.csscomb.json'))
       .on('error', handleError)
-      .pipe(gulp.dest('./src/css'))
+      .pipe(gulp.dest('./build/css'))
       .pipe(browserSync.reload({stream: true}))
 });
 
