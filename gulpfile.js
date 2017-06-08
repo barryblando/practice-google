@@ -5,7 +5,8 @@ const gulp = require('gulp'),
       sass = require('gulp-sass'),
       browserSync = require('browser-sync').create(),
       autoPrefixer = require('gulp-autoprefixer'),
-      csscomb = require('gulp-csscomb');
+      csscomb = require('gulp-csscomb'),
+      reload = browserSync.reload;
 
 function handleError(error) {
   console.log(error.toString());
@@ -19,7 +20,7 @@ gulp.task('styles', function () {
       .pipe(csscomb('./src/json/.csscomb.json'))
       .on('error', handleError)
       .pipe(gulp.dest('./build/css'))
-      .pipe(browserSync.reload({ stream: true }))
+      .pipe(reload({ stream: true }))
 });
 
 gulp.task('serve', function () {
@@ -29,7 +30,7 @@ gulp.task('serve', function () {
     }
   });
   gulp.watch('./src/scss/**/*.scss', ['styles']);
-  gulp.watch('./*.html').on('change', browserSync.reload);
+  gulp.watch('./*.html').on('change', reload);
 });
 
 gulp.task('default', ['styles', 'serve']);
