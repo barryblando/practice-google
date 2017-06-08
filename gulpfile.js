@@ -15,13 +15,11 @@ function handleError(error) {
 gulp.task('styles', function () {
   gulp.src('./src/scss/application.scss')
       .pipe(sass())
-      .pipe(autoPrefixer({
-        browsers: ['last 2 versions']
-      }))
+      .pipe(autoPrefixer({ browsers: ['last 2 versions'] }))
       .pipe(csscomb('./src/json/.csscomb.json'))
       .on('error', handleError)
       .pipe(gulp.dest('./build/css'))
-      .pipe(browserSync.reload({stream: true}))
+      .pipe(browserSync.reload({ stream: true }))
 });
 
 gulp.task('serve', function () {
